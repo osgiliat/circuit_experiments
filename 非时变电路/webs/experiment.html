@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+  <link rel="stylesheet prefetch" href="../materials/lib/css/bootstrap.min.css" />
+  <link rel="stylesheet prefetch" href="../materials/lib/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="../materials/sidebar/style.css" />
+  <link rel="stylesheet" href="../materials/circuit/circuit.css" />
+  <link rel="stylesheet" href="../materials/submit/dialog.css">
+
+  <script src="../materials/lib/js/jquery.min.js"></script>
+  <script src="../materials/lib/js/bootstrap.min.js"></script>
+  <script src="../materials/lib/js/vue.js"></script>
+  <script src="../materials/lib/js/debugout.js"></script>
+  <script src="../materials/utils/utils.js"></script>
+  <script src="../materials/utils/myUtils.js"></script>
+  <script src="../materials/utils/matrix.js"></script>
+
+  <title>电路虚拟仿真实验-...实验</title>
+
+  <style>
+    body {
+      background-image: url(../materials/assets/images/webbkgrd.jpg);
+      background-size: 100% 100%;
+      background-attachment: fixed;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="app-container" id="app">
+    <div id="wrapper">
+      <div class="overlay"></div>
+      <nav v-pre class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+        <ul class="nav sidebar-nav">
+          <li class="sidebar-brand">
+            <a href="../index.html">电路虚拟仿真实验</a>
+          </li>
+          <li>
+            <a href="../index.html"><i class="fa fa-fw fa-home"></i>首页</a>
+          </li>
+          <li>
+            <a href="../webs/illustration.html"><i class="fa fa-fw fa-book"></i>实验说明</a>
+          </li>
+          <li>
+            <a href="../webs/instruction.html"><i class="fa fa-fw fa-list-ul"></i>实验步骤</a>
+          </li>
+          <li>
+            <a href="../webs/experiment.html"><i class="fa fa-fw fa-cog"></i>实验页面</a>
+          </li>
+          <li>
+            <a href="../webs/experiment.html?expCfgUrl=../examples/expCfg.json">
+              <i class="fa fa-fw fa-cog"></i>
+              伏安法测电阻实验
+            </a>
+          </li>
+          <li>
+            <a href="../webs/experiment.html?expCfgUrl=../examples/expCfg2.json">
+              <i class="fa fa-fw fa-cog"></i>
+              电桥法测电阻实验
+            </a>
+          </li>
+          <li>
+            <a href="../webs/experiment.html?expCfgUrl=../examples/expCfg3.json">
+              <i class="fa fa-fw fa-cog"></i>
+              查错实验1
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <nav class="navbar navbar-inverse navbar-fixed-top" id="part-nav">
+        <div id="sidenav" style="width:100%; height:100%; overflow:auto">
+          <h6 style="color: aliceblue; text-align: center;">元件参数</h6>
+          <div v-for="(element, index) in circuitState.elements" :key="index" :id="'element'+element.No">
+            <table width="100%">
+              <thead>
+                <tr class="cells">
+                  <th style="text-align:center; width:15%">No:{{ element.No }}</th>
+                  <th style="text-align:center; width:70%">{{ element.name }}</th>
+                  <th style="text-align:center; width:15%">
+                    <a href="javascript:void(0)" @click="addDetailShow(element.No)">
+                      {{sidenavDetailShow.includes(element.No) ? "收起" : "展开"}}
+                    </a>
+                  </th>
+                </tr>
+              </thead>
+            </table>
+            <div :id="'elementDetail'+element.No" v-show="sidenavDetailShow.includes(element.No)" :key="element.No">
+              <table width="100%">
+                <tbody class="cell">
+                  <tr v-for="(value, key, index2) in sortElement(element)" :key="key">
+                    <template
+                      v-if="key !== 'draw' && key !== 'addConnectors' && propertiesEditType[key].type !== 'hide'">
+                      <td>{{ key }}</td>
+                      <td v-if="propertiesEditType[key].type === 'text'">
+                        <input style="color:black" type="text" v-model="element[key]">
+                      </td>
+                      <td v-else-if="propertiesEditType[key].type === 'number'">
+                        <input style="color:black" type="number" v-model.number="element[key]">
+                      </td>
+                      <td v-else-if="propertiesEditType[key].type === 'range'">
+                        <input style="color:black" type="range" :min="propertiesEditType[key].min"
+                          :max="propertiesEditType[key].max" :step="propertiesEditType[key].step"
+                          :defaultValue="element[key]" v-model.number="element[key]">
+                        <input type="number" style="width: 50px; color:black" v-model.number="element[key]">
+                      </td>
+                      <td v-else-if="propertiesEditType[key].type === 'checkbox'">
+                        <label>
+                          <input type="checkbox" v-model="element[key]">{{element[key]}}
+                        </label>
+                      </td>
+                      <td v-else-if="propertiesEditType[key].type === 'select'">
+                        <select style="color:black" :multiple="propertiesEditType[key].multiple" v-model="element[key]">
+                          <option v-for="(option, index) in propertiesEditType[key].options" :key="index"
+                            :value="option">
+                            {{option}}
+                          </option>
+                        </select>
+                      </td>
+                      <td v-else-if="propertiesEditType[key].type === 'uneditable'">
+                        {{ formatProperty(key, element, 4) }}
+                      </td>
+                    </template>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <div id="page-content-wrapper">
+        <button id="Lists" type="button" class="hamburger is-closed animated fadeInLeft" data-toggle="offcanvas">
+          <span class="hamb-top"></span>
+          <span class="hamb-middle"></span>
+          <span class="hamb-bottom"></span>
+        </button>
+        <button id="Constructs" type="button" class="addI is-closed animated fadeInLeft" data-toggle="parts">
+          <span class="add-ver"></span>
+          <span class="add-pla"></span>
+        </button>
+        <div class="container">
+          <div class="row">
+            <canvas id="circuit" width="1000px" height="500px"></canvas>
+          </div>
+          <div id="control">
+            <div style="margin-top: 0%; background-color: rgba(50, 60, 89, 0.1)">
+              <h5 style="text-align: center">控制台</h5>
+            </div>
+            <hr />
+            <div id="elements" style="margin-left: 15px">
+              <input v-for="(elClass, index) in Object.keys(circuitState.No)" :key="index"
+                v-if="elClass !== 'element' && elClass !== 'connector'" :id="elClass" class="buttons" type="button"
+                :value="classZH[elClass]+elementsRemaining[elClass].display"
+                :disabled="elementsRemaining[elClass].number &lt;= 0" v-show="circuitState.max[elClass] !== 0">
+              </input>
+              <!-- <input id="voltmeter" class="buttons" type="button"
+                :value="'电压表V'+elementsRemaining.voltmeter.display"
+                :disabled="elementsRemaining.voltmeter.number &lt;= 0"
+                v-show="elementsRemaining.voltmeter.number !== 0" />
+              <input id="ammeter" class="buttons" type="button"
+                :value="'电流表A'+elementsRemaining.ammeter.display"
+                :disabled="elementsRemaining.ammeter.number &lt;= 0" />
+              <input id="resistor" class="buttons" type="button"
+                :value="'电阻R'+elementsRemaining.resistor.display"
+                :disabled="elementsRemaining.resistor.number &lt;= 0" /><br />
+              <input id="capacitor" class="buttons" type="button"
+                :value="'电容C'+elementsRemaining.capacitor.display"
+                :disabled="elementsRemaining.capacitor.number &lt;= 0" />
+              <input id="inductor" class="buttons" type="button"
+                :value="'电感L'+elementsRemaining.inductor.display"
+                :disabled="elementsRemaining.inductor.number &lt;= 0" />
+              <input id="powerVDC" class="buttons" type="button"
+                :value="'直流电压源'+elementsRemaining.powerVDC.display"
+                :disabled="elementsRemaining.powerVDC.number &lt;= 0" />
+              <input id="powerIDC" class="buttons" type="button"
+                :value="'直流电流源'+elementsRemaining.powerIDC.display"
+                :disabled="elementsRemaining.powerIDC.number &lt;= 0" />
+              <input id="powerVAC" class="buttons" type="button"
+                :value="'交流电压源'+elementsRemaining.powerVAC.display"
+                :disabled="elementsRemaining.powerVAC.number &lt;= 0" />
+              <input id="powerIAC" class="buttons" type="button"
+                :value="'交流电流源'+elementsRemaining.powerIAC.display"
+                :disabled="elementsRemaining.powerIAC.number &lt;= 0" /><br />
+              <input id="wire" class="buttons" type="button"
+                :value="'导线'+elementsRemaining.wire.display"
+                :disabled="elementsRemaining.wire.number &lt;= 0" /> -->
+            </div>
+
+            <div id="operation" style="margin-left: 15px">
+              <input id="calculate" class="buttons2" type="button" value="开始" />
+              <!-- <input id="help" class="buttons2" type="button" value="帮助" onclick="window.open('circuit_help.html')" /> -->
+              <input id="delete" class="buttons" type="button" value="删除" /><br />
+              <input id="undo" class="buttons2" type="button" value="撤销" />
+              <input id="redo" class="buttons2" type="button" value="恢复" />
+              <input id="reset" class="buttons2" type="button" value="重置" />
+              <input id="clear" class="buttons2" type="button" value="清空" :disabled="expCfg.expMode" />
+              <input id="save" class="buttonscal" type="button" value="保存文件" />
+              <input id="open" type="file" accept="application/json" onchange="openFile(event)"
+                :disabled="expCfg.expMode" />
+              <label>
+                <input id="showConnectors" class="checkbox" type="checkbox" checked="checked" />
+                显示接线柱
+              </label>
+              <label>
+                <input id="showTooltip" class="checkbox" type="checkbox" checked="checked" />
+                显示详细信息
+              </label>
+              <br />
+              <button class="btn btn-default" style="color: black;" v-show="submitDialog.openBtnShow"
+                @click="showDialog('submitDialog')">提交</button>
+              <button class="btn btn-default" style="color: black;" v-show="checkingDialog.openBtnShow"
+                @click="showDialog('checkingDialog')">元件随机损坏</button>
+              <button class="btn btn-default" style="color: black;" v-show="!expCfg.expMode"
+                @click="showDialog('setMaxDialog')">限制元件数量</button>
+              <div class="btn-group dropup" v-show="markBrokenBtn.show">
+                <button type="button" :class="{'btn btn-default':true, 'active':markBrokenBtn.active}" style="color: black;" @click="markBroken(markBrokenBtn.mode,true)">{{markBrokenBtn.description[markBrokenBtn.mode].text}}</button>
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false" style="color: black;">
+                </button>
+                <ul class="dropdown-menu">
+                  <li @click="markBroken('broken')"><a href="javascript:void(0)">标记为损坏</a></li>
+                  <li @click="markBroken('intact')"><a href="javascript:void(0)">标记为完好</a></li>
+                  <li @click="markBroken('cancel')"><a href="javascript:void(0)">取消标记</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="submitDialog" v-show="submitDialog.isShow" :class="['dialog', submitDialog.isShowClass]">
+      <div class="dialog-modal" @click.stop="closeDialog('submitDialog')"></div>
+      <div class="dialog-main">
+        <button type="button" class="close" aria-label="Close" @click="closeDialog('submitDialog')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <div class="dialog-head">
+          <div style="text-align: left;">请在下方作答</div>
+        </div>
+        <div class="dialog-body">
+          <form class="form-horizontal">
+            <div v-for="(question, index) in questions" :key="index" :class="['form-group', question.correctness]"
+              @click="editingAnswer(question)">
+              <label :for="question.id" class="col-sm-4 control-label" style="text-align: left;">
+                {{question.content}}
+                <button v-if="question.input.type === 'selectBroken'"
+                  @click.prevent="question.answer.push({})">新增一行</button>
+              </label>
+              <div class="col-sm-8">
+                <input v-if="question.input.type === 'text'" type="text" class="form-control" :id="question.id"
+                  v-model="question.answer" />
+                <input v-else-if="question.input.type === 'number'" type="number" :step="question.input.step"
+                  class="form-control" :id="question.id" v-model="question.answer" />
+                <select v-else-if="question.input.type === 'select'" :multiple="question.input.multiple"
+                  class="form-control" :id="question.id" v-model="question.answer">
+                  <option v-for="(option, index) in question.input.options" :key="index" :value="option">{{option}}
+                  </option>
+                </select>
+                <div v-else-if="question.input.type === 'selectBroken'" :id="question.id">
+                  <table class="table-bordered">
+                    <thead>
+                      <tr>
+                        <th>元件类型</th>
+                        <th>元件编号</th>
+                        <th>损坏类型</th>
+                        <th>操作</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr v-for="(item, index) in question.answer" :key="index">
+                        <td>
+                          <select v-model="item.type">
+                            <option value="element">元件</option>
+                            <option value="wire">导线</option>
+                          </select>
+                        </td>
+                        <td>
+                          <select v-model="item.No">
+                            <option v-if="item.type === 'element'"
+                              v-for="(option, index) in circuitState.elements.map(i=>i.No)" :key="index"
+                              :value="option">{{option}}</option>
+                            <option v-if="item.type === 'wire'"
+                              v-for="(option, index) in circuitState.wires.map(i=>i.No)" :key="index" :value="option">
+                              {{option}}</option>
+                          </select>
+                        </td>
+                        <td>
+                          <select v-model="item.brokenType">
+                            <option v-for="(option, index) in [0,1,2,3]" :key="index" :value="option">{{option}}
+                            </option>
+                          </select>
+                        </td>
+                        <td>
+                          <button v-if="question.answer.length > 1"
+                            @click.prevent="question.answer.splice(index,1)">删除</button>
+                          <button @click.prevent="selectOnCanvas(question.answer[index])">选择</button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+            </div>
+            <hr />
+            <button type="submit" :class="submitDialog.btnClass" id="certify" @click.prevent="submitAnswer()">
+              {{submitDialog.btnInfo}}
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div id="checkingDialog" v-show="checkingDialog.isShow" :class="['dialog', checkingDialog.isShowClass]">
+      <div class="dialog-modal" @click.stop="closeDialog('checkingDialog')"></div>
+      <div class="dialog-main">
+        <button type="button" class="close" aria-label="Close" @click="closeDialog('checkingDialog')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <div class="dialog-head">
+          <div style="text-align: left;">输入想要产生的损坏数量</div>
+        </div>
+        <div class="dialog-body">
+          <form class="form-horizontal">
+            <div class="form-group" @click="resetDialogBtn('checkingDialog')">
+              <label for="checkingInput" class="col-sm-4 control-label" style="text-align: left;">
+                损坏数量：
+              </label>
+              <div class="col-sm-8">
+                <input class="form-control" id="checkingInput" type="number"
+                  v-model.number="checkingDialog.checkingNumber">
+              </div>
+            </div>
+            <hr />
+            <button type="submit" :class="checkingDialog.btnClass" id="certify" @click.prevent="checkingGenerate()">
+              {{checkingDialog.btnInfo}}
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div id="setMaxDialog" v-show="setMaxDialog.isShow" :class="['dialog', setMaxDialog.isShowClass]">
+      <div class="dialog-modal" @click.stop="closeDialog('setMaxDialog')"></div>
+      <div class="dialog-main">
+        <button type="button" class="close" aria-label="Close" @click="closeDialog('setMaxDialog')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <div class="dialog-head">
+          <div style="text-align: left;">输入要限制的元件数量（负数表示不限制）</div>
+        </div>
+        <div class="dialog-body">
+          <form class="form-horizontal">
+            <div class="form-group" v-for="(elementMax, elementClass, index) in setMaxDialog.max" :key="index">
+              <label class="col-sm-4 control-label" style="text-align: left;">
+                {{elementClass}}:
+              </label>
+              <div class="col-sm-8">
+                <input class="form-control" :id="elementClass" type="number"
+                  v-model.number="setMaxDialog.max[elementClass]">
+              </div>
+            </div>
+            <hr />
+            <button type="submit" class="btn btn-primary" style="text-align: center; margin: auto;" id="certify"
+              @click.prevent="setMax()">
+              确认
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../materials/circuit/js/circuit_functions.js"></script>
+  <script src="../materials/circuit/js/circuit_class.js"></script>
+  <script src="../materials/circuit/js/circuit_calculate.js"></script>
+  <script src="../materials/circuit/js/circuit_check.js"></script>
+  <script src="../materials/circuit/js/circuit_vue.js"></script>
+  <script src="../materials/circuit/js/circuit_main.js"></script>
+  <script src="../materials/circuit/js/circuit_opensave.js"></script>
+
+  <script type="text/javascript">
+    var addIClosed = true;
+    function addI_cross() {
+      addIClosed = !addIClosed;
+      $(".addI").toggleClass("is-open is-closed");
+      $("#wrapper").toggleClass("toggled2");
+    }
+    $(document).ready(function () {
+      var trigger1 = $(".hamburger"),
+        overlay = $(".overlay"),
+        isClosed1 = false;
+
+      trigger1.click(function () {
+        hamburger_cross();
+      });
+      $(".addI").click(function () {
+        addI_cross();
+      });
+      function hamburger_cross() {
+        if (isClosed1 == true) {
+          overlay.hide();
+          trigger1.removeClass("is-open");
+          trigger1.addClass("is-closed");
+          isClosed1 = false;
+        } else {
+          overlay.show();
+          trigger1.removeClass("is-closed");
+          trigger1.addClass("is-open");
+          isClosed1 = true;
+        }
+      }
+
+      $('[data-toggle="offcanvas"]').click(function () {
+        $("#wrapper").toggleClass("toggled1");
+      });
+    });
+  </script>
+</body>
+
+</html>

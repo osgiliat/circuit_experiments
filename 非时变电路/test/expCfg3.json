@@ -1,0 +1,553 @@
+{
+    "id": "003",
+    "name": "3查错实验1",
+    "type": "check",
+    "initState": {
+        "elements": [
+            {
+                "name": "voltmeter0",
+                "ID": "voltmeter0",
+                "No": 0,
+                "NoVoltmeter": 0,
+                "class": "voltmeter",
+                "x": 311,
+                "y": 94,
+                "angle": 0,
+                "connectors": [0, 1],
+                "connectorsXY": [
+                    { "x": -70, "y": 0 },
+                    { "x": 70, "y": 0 }
+                ],
+                "state": false,
+                "rd": -1,
+                "put": true,
+                "unknownProperties": ["brokenType", "I", "P"],
+                "deletable": false,
+                "brokenType": -1,
+                "propertiesEditType": {
+                    "NoVoltmeter": { "type": "uneditable" },
+                    "measuringRange": {
+                        "type": "range",
+                        "min": 1,
+                        "max": 10,
+                        "step": 1
+                    },
+                    "unit": {
+                        "type": "select",
+                        "multiple": false,
+                        "options": ["V", "mV", "uV"]
+                    }
+                },
+                "R": 1000000,
+                "U": 0,
+                "I": 0,
+                "P": 0,
+                "measuringRange": 3,
+                "precision": 2,
+                "unit": "V"
+            },
+            {
+                "name": "resistor0",
+                "ID": "resistor0",
+                "No": 1,
+                "NoResistor": 0,
+                "class": "resistor",
+                "x": 312,
+                "y": 198,
+                "angle": 0,
+                "connectors": [2, 3],
+                "connectorsXY": [
+                    { "x": -45, "y": 0 },
+                    { "x": 45, "y": 0 }
+                ],
+                "state": false,
+                "rd": 1,
+                "put": true,
+                "unknownProperties": ["brokenType", "U", "I", "P"],
+                "deletable": false,
+                "brokenType": 0,
+                "propertiesEditType": {
+                    "NoResistor": { "type": "uneditable" },
+                    "R": { "type": "range", "min": 0, "max": 1000, "step": 1 }
+                },
+                "R": 10,
+                "U": 0,
+                "I": 0,
+                "P": 0,
+                "PMax": 10
+            },
+            {
+                "name": "ammeter0",
+                "ID": "ammeter0",
+                "No": 2,
+                "NoAmmeter": 0,
+                "class": "ammeter",
+                "x": 522,
+                "y": 195,
+                "angle": 0,
+                "connectors": [4, 5],
+                "connectorsXY": [
+                    { "x": -70, "y": 0 },
+                    { "x": 70, "y": 0 }
+                ],
+                "state": false,
+                "rd": 1,
+                "put": true,
+                "unknownProperties": ["brokenType", "U", "P"],
+                "deletable": false,
+                "brokenType": 1,
+                "propertiesEditType": {
+                    "NoAmmeter": { "type": "uneditable" },
+                    "measuringRange": {
+                        "type": "range",
+                        "min": 1,
+                        "max": 10,
+                        "step": 1
+                    },
+                    "unit": {
+                        "type": "select",
+                        "multiple": false,
+                        "options": ["A", "mA", "uA"]
+                    }
+                },
+                "R": 0.5,
+                "U": 0,
+                "I": 0,
+                "P": 0,
+                "measuringRange": 1,
+                "precision": 2,
+                "unit": "A"
+            },
+            {
+                "name": "powerVDC0",
+                "ID": "powerVDC0",
+                "No": 3,
+                "NoPowerVDC": 0,
+                "class": "powerVDC",
+                "x": 403,
+                "y": 326,
+                "angle": 0,
+                "connectors": [6, 7],
+                "connectorsXY": [
+                    { "x": -50, "y": 20 },
+                    { "x": 50, "y": 20 }
+                ],
+                "state": false,
+                "rd": 1,
+                "put": true,
+                "unknownProperties": ["brokenType", "I", "P"],
+                "deletable": false,
+                "brokenType": -1,
+                "propertiesEditType": {
+                    "NoPowerVDC": { "type": "uneditable" },
+                    "U": { "type": "range", "min": 0, "max": 100, "step": 1 }
+                },
+                "R": 0,
+                "U": 2,
+                "I": 0,
+                "P": 0,
+                "ON": true
+            }
+        ],
+        "connectors": [
+            {
+                "class": "connector",
+                "name": "connector 0",
+                "ID": "connector 0",
+                "No": 0,
+                "R": 0,
+                "I": 0,
+                "connectWith": [2],
+                "connectedWires": [4],
+                "x": 241,
+                "y": 94,
+                "belongTo": 0,
+                "unknownProperties": []
+            },
+            {
+                "class": "connector",
+                "name": "connector 1",
+                "ID": "connector 1",
+                "No": 1,
+                "R": 0,
+                "I": 0,
+                "connectWith": [3],
+                "connectedWires": [3],
+                "x": 381,
+                "y": 94,
+                "belongTo": 0,
+                "unknownProperties": []
+            },
+            {
+                "class": "connector",
+                "name": "connector 2",
+                "ID": "connector 2",
+                "No": 2,
+                "R": 0,
+                "I": 0,
+                "connectWith": [6, 0],
+                "connectedWires": [0, 4],
+                "x": 267,
+                "y": 198,
+                "belongTo": 1,
+                "unknownProperties": []
+            },
+            {
+                "class": "connector",
+                "name": "connector 3",
+                "ID": "connector 3",
+                "No": 3,
+                "R": 0,
+                "I": 0,
+                "connectWith": [4, 1],
+                "connectedWires": [2, 3],
+                "x": 357,
+                "y": 198,
+                "belongTo": 1,
+                "unknownProperties": []
+            },
+            {
+                "class": "connector",
+                "name": "connector 4",
+                "ID": "connector 4",
+                "No": 4,
+                "R": 0,
+                "I": 0,
+                "connectWith": [3],
+                "connectedWires": [2],
+                "x": 452,
+                "y": 195,
+                "belongTo": 2,
+                "unknownProperties": []
+            },
+            {
+                "class": "connector",
+                "name": "connector 5",
+                "ID": "connector 5",
+                "No": 5,
+                "R": 0,
+                "I": 0,
+                "connectWith": [7],
+                "connectedWires": [1],
+                "x": 592,
+                "y": 195,
+                "belongTo": 2,
+                "unknownProperties": []
+            },
+            {
+                "class": "connector",
+                "name": "connector 6",
+                "ID": "connector 6",
+                "No": 6,
+                "R": 0,
+                "I": 0,
+                "connectWith": [2],
+                "connectedWires": [0],
+                "x": 353,
+                "y": 346,
+                "belongTo": 3,
+                "unknownProperties": []
+            },
+            {
+                "class": "connector",
+                "name": "connector 7",
+                "ID": "connector 7",
+                "No": 7,
+                "R": 0,
+                "I": 0,
+                "connectWith": [5],
+                "connectedWires": [1],
+                "x": 453,
+                "y": 346,
+                "belongTo": 3,
+                "unknownProperties": []
+            }
+        ],
+        "wires": [
+            {
+                "class": "wire",
+                "name": "wire 0",
+                "ID": "wire 0",
+                "No": 0,
+                "R": 0.000001,
+                "U": 0,
+                "I": 0,
+                "put": true,
+                "loc1": {
+                    "class": "connector",
+                    "name": "connector 2",
+                    "ID": "connector 2",
+                    "No": 2,
+                    "R": 0,
+                    "I": 0,
+                    "connectWith": [6, 0],
+                    "connectedWires": [0, 4],
+                    "x": 267,
+                    "y": 198,
+                    "belongTo": 1,
+                    "unknownProperties": []
+                },
+                "loc2": {
+                    "class": "connector",
+                    "name": "connector 6",
+                    "ID": "connector 6",
+                    "No": 6,
+                    "R": 0,
+                    "I": 0,
+                    "connectWith": [2],
+                    "connectedWires": [0],
+                    "x": 353,
+                    "y": 346,
+                    "belongTo": 3,
+                    "unknownProperties": []
+                },
+                "shift": false,
+                "turningPoints": [
+                    { "x": 267, "y": 198, "shift": false },
+                    { "x": 353, "y": 346, "shift": false }
+                ],
+                "deletable": true,
+                "broken": false,
+                "brokenType": -1
+            },
+            {
+                "class": "wire",
+                "name": "wire 1",
+                "ID": "wire 1",
+                "No": 1,
+                "R": 0.000001,
+                "U": 0,
+                "I": 0,
+                "put": true,
+                "loc1": {
+                    "class": "connector",
+                    "name": "connector 7",
+                    "ID": "connector 7",
+                    "No": 7,
+                    "R": 0,
+                    "I": 0,
+                    "connectWith": [5],
+                    "connectedWires": [1],
+                    "x": 453,
+                    "y": 346,
+                    "belongTo": 3,
+                    "unknownProperties": []
+                },
+                "loc2": {
+                    "class": "connector",
+                    "name": "connector 5",
+                    "ID": "connector 5",
+                    "No": 5,
+                    "R": 0,
+                    "I": 0,
+                    "connectWith": [7],
+                    "connectedWires": [1],
+                    "x": 592,
+                    "y": 195,
+                    "belongTo": 2,
+                    "unknownProperties": []
+                },
+                "shift": true,
+                "turningPoints": [
+                    { "x": 453, "y": 346, "shift": false },
+                    { "x": 592, "y": 195, "shift": true }
+                ],
+                "deletable": true,
+                "broken": false,
+                "brokenType": -1
+            },
+            {
+                "class": "wire",
+                "name": "wire 2",
+                "ID": "wire 2",
+                "No": 2,
+                "R": 0.000001,
+                "U": 0,
+                "I": 0,
+                "put": true,
+                "loc1": {
+                    "class": "connector",
+                    "name": "connector 4",
+                    "ID": "connector 4",
+                    "No": 4,
+                    "R": 0,
+                    "I": 0,
+                    "connectWith": [3],
+                    "connectedWires": [2],
+                    "x": 452,
+                    "y": 195,
+                    "belongTo": 2,
+                    "unknownProperties": []
+                },
+                "loc2": {
+                    "class": "connector",
+                    "name": "connector 3",
+                    "ID": "connector 3",
+                    "No": 3,
+                    "R": 0,
+                    "I": 0,
+                    "connectWith": [4, 1],
+                    "connectedWires": [2, 3],
+                    "x": 357,
+                    "y": 198,
+                    "belongTo": 1,
+                    "unknownProperties": []
+                },
+                "shift": false,
+                "turningPoints": [
+                    { "x": 452, "y": 195, "shift": false },
+                    { "x": 357, "y": 198, "shift": false }
+                ],
+                "deletable": true,
+                "broken": false,
+                "brokenType": -1
+            },
+            {
+                "class": "wire",
+                "name": "wire 3",
+                "ID": "wire 3",
+                "No": 3,
+                "R": 0.000001,
+                "U": 0,
+                "I": 0,
+                "put": true,
+                "loc1": {
+                    "class": "connector",
+                    "name": "connector 1",
+                    "ID": "connector 1",
+                    "No": 1,
+                    "R": 0,
+                    "I": 0,
+                    "connectWith": [3],
+                    "connectedWires": [3],
+                    "x": 381,
+                    "y": 94,
+                    "belongTo": 0,
+                    "unknownProperties": []
+                },
+                "loc2": {
+                    "class": "connector",
+                    "name": "connector 3",
+                    "ID": "connector 3",
+                    "No": 3,
+                    "R": 0,
+                    "I": 0,
+                    "connectWith": [4, 1],
+                    "connectedWires": [2, 3],
+                    "x": 357,
+                    "y": 198,
+                    "belongTo": 1,
+                    "unknownProperties": []
+                },
+                "shift": false,
+                "turningPoints": [
+                    { "x": 381, "y": 94, "shift": false },
+                    { "x": 357, "y": 198, "shift": false }
+                ],
+                "deletable": true,
+                "broken": false,
+                "brokenType": -1
+            },
+            {
+                "class": "wire",
+                "name": "wire 4",
+                "ID": "wire 4",
+                "No": 4,
+                "R": 0.000001,
+                "U": 0,
+                "I": 0,
+                "put": true,
+                "loc1": {
+                    "class": "connector",
+                    "name": "connector 0",
+                    "ID": "connector 0",
+                    "No": 0,
+                    "R": 0,
+                    "I": 0,
+                    "connectWith": [2],
+                    "connectedWires": [4],
+                    "x": 241,
+                    "y": 94,
+                    "belongTo": 0,
+                    "unknownProperties": []
+                },
+                "loc2": {
+                    "class": "connector",
+                    "name": "connector 2",
+                    "ID": "connector 2",
+                    "No": 2,
+                    "R": 0,
+                    "I": 0,
+                    "connectWith": [6, 0],
+                    "connectedWires": [0, 4],
+                    "x": 267,
+                    "y": 198,
+                    "belongTo": 1,
+                    "unknownProperties": []
+                },
+                "shift": false,
+                "turningPoints": [
+                    { "x": 241, "y": 94, "shift": false },
+                    { "x": 267, "y": 198, "shift": false }
+                ],
+                "deletable": true,
+                "broken": false,
+                "brokenType": -1
+            }
+        ],
+        "No": {
+            "element": 4,
+            "voltmeter": 1,
+            "resistor": 1,
+            "ammeter": 1,
+            "powerVDC": 1,
+            "powerIDC": 0,
+            "powerVAC": 0,
+            "powerIAC": 0,
+            "capacitor": 0,
+            "inductor": 0,
+            "connector": 8,
+            "wire": 5
+        },
+        "max": {
+            "element": "Infinity",
+            "voltmeter": 2,
+            "resistor": 0,
+            "ammeter": 0,
+            "powerVDC": 0,
+            "powerIDC": 0,
+            "powerVAC": 0,
+            "powerIAC": 0,
+            "capacitor": 0,
+            "inductor": 0,
+            "connector": "Infinity",
+            "wire": "Infinity"
+        },
+        "count": {
+            "element": 4,
+            "voltmeter": 1,
+            "resistor": 1,
+            "ammeter": 1,
+            "powerVDC": 1,
+            "powerIDC": 0,
+            "powerVAC": 0,
+            "powerIAC": 0,
+            "capacitor": 0,
+            "inductor": 0,
+            "connector": 8,
+            "wire": 5
+        }
+    },
+    "questions": [
+        {
+            "id": "1",
+            "content": "损坏的元件有：",
+            "description": "broken",
+            "input": {
+                "type": "selectBroken"
+            },
+            "rightAnswer": "getBroken()"
+        }
+    ],
+    "expMode": true
+}

@@ -1,0 +1,44 @@
+@charset "utf-8";
+/* CSS Document */
+body {
+    font-family: "Lato", sans-serif;
+    background: #d1cdcd;
+    margin: 20px;
+}
+
+#circuit {
+    background: #ffffff;
+    display: block;
+    width: 1000px;
+    height: 500px;
+}
+
+.buttons {
+    margin-bottom: 5px;
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+}
+
+.buttons2 {
+    margin-bottom: 5px;
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+}
+
+.buttonscal {
+    margin-bottom: 5px;
+    width: 120px;
+    height: 30px;
+    line-height: 30px;
+}
+
+#control {
+    width: 18%;
+    height: 1000px;
+    background-color: rgba(82, 188, 217, 0.223);
+    position: fixed;
+    top: 5%;
+    right: 3%;
+}

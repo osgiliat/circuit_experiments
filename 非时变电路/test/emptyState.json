@@ -1,0 +1,47 @@
+{
+    "elements": [],
+    "connectors": [],
+    "wires": [],
+    "No": {
+        "element": 0,
+        "voltmeter": 0,
+        "resistor": 0,
+        "ammeter": 0,
+        "powerVDC": 0,
+        "powerIDC": 0,
+        "powerVAC": 0,
+        "powerIAC": 0,
+        "capacitor": 0,
+        "inductor": 0,
+        "connector": 0,
+        "wire": 0
+    },
+    "max": {
+        "element": "Infinity",
+        "voltmeter": "Infinity",
+        "resistor": "Infinity",
+        "ammeter": "Infinity",
+        "powerVDC": "Infinity",
+        "powerIDC": "Infinity",
+        "powerVAC": "Infinity",
+        "powerIAC": "Infinity",
+        "capacitor": "Infinity",
+        "inductor": "Infinity",
+        "connector": "Infinity",
+        "wire": "Infinity"
+    },
+    "count": {
+        "element": 0,
+        "voltmeter": 0,
+        "resistor": 0,
+        "ammeter": 0,
+        "powerVDC": 0,
+        "powerIDC": 0,
+        "powerVAC": 0,
+        "powerIAC": 0,
+        "capacitor": 0,
+        "inductor": 0,
+        "connector": 0,
+        "wire": 0
+    }
+}

@@ -1,0 +1,1114 @@
+{
+    "id": "003",
+    "name": "3查错实验1",
+    "type": "check",
+    "initState": {
+        "elements": [
+            {
+                "name": "R0",
+                "ID": "resistor0",
+                "No": 0,
+                "NoResistor": 0,
+                "class": "resistor",
+                "x": 200,
+                "y": 150,
+                "angle": 315,
+                "connectors": [
+                    0,
+                    1
+                ],
+                "connectorsXY": [
+                    {
+                        "x": -45,
+                        "y": 0
+                    },
+                    {
+                        "x": 45,
+                        "y": 0
+                    }
+                ],
+                "state": false,
+                "rd": 1,
+                "put": true,
+                "unknownProperties": [],
+                "deletable": true,
+                "brokenType": -1,
+                "propertiesEditType": {
+                    "NoResistor": {
+                        "type": "uneditable"
+                    },
+                    "R": {
+                        "type": "range",
+                        "min": 0,
+                        "max": 1000,
+                        "step": 1
+                    },
+                    "PMax": {
+                        "type": "range",
+                        "min": 0,
+                        "max": 1000,
+                        "step": 1
+                    }
+                },
+                "R": 50,
+                "U": 0.3333333270356534,
+                "I": 0.006666666540713067,
+                "P": 0.002222222138253157,
+                "PMax": 10
+            },
+            {
+                "name": "R1",
+                "ID": "resistor1",
+                "No": 1,
+                "NoResistor": 1,
+                "class": "resistor",
+                "x": 450,
+                "y": 150,
+                "angle": 45,
+                "connectors": [
+                    2,
+                    3
+                ],
+                "connectorsXY": [
+                    {
+                        "x": -45,
+                        "y": 0
+                    },
+                    {
+                        "x": 45,
+                        "y": 0
+                    }
+                ],
+                "state": false,
+                "rd": 1,
+                "put": true,
+                "unknownProperties": [],
+                "deletable": true,
+                "brokenType": -1,
+                "propertiesEditType": {
+                    "NoResistor": {
+                        "type": "uneditable"
+                    },
+                    "R": {
+                        "type": "range",
+                        "min": 0,
+                        "max": 1000,
+                        "step": 1
+                    },
+                    "PMax": {
+                        "type": "range",
+                        "min": 0,
+                        "max": 1000,
+                        "step": 1
+                    }
+                },
+                "R": 100,
+                "U": 0.6666666529643471,
+                "I": 0.006666666529643471,
+                "P": 0.004444444261746852,
+                "PMax": 10
+            },
+            {
+                "name": "R2",
+                "ID": "resistor2",
+                "No": 2,
+                "NoResistor": 2,
+                "class": "resistor",
+                "x": 200,
+                "y": 300,
+                "angle": 45,
+                "connectors": [
+                    4,
+                    5
+                ],
+                "connectorsXY": [
+                    {
+                        "x": -45,
+                        "y": 0
+                    },
+                    {
+                        "x": 45,
+                        "y": 0
+                    }
+                ],
+                "state": false,
+                "rd": 1,
+                "put": true,
+                "unknownProperties": [],
+                "deletable": true,
+                "brokenType": -1,
+                "propertiesEditType": {
+                    "NoResistor": {
+                        "type": "uneditable"
+                    },
+                    "R": {
+                        "type": "range",
+                        "min": 0,
+                        "max": 1000,
+                        "step": 1
+                    },
+                    "PMax": {
+                        "type": "range",
+                        "min": 0,
+                        "max": 1000,
+                        "step": 1
+                    }
+                },
+                "R": 150,
+                "U": 0.33333333148563254,
+                "I": 0.002222222209904217,
+                "P": 0.0007407407325287373,
+                "PMax": 10
+            },
+            {
+                "name": "R3",
+                "ID": "resistor3",
+                "No": 3,
+                "NoResistor": 3,
+                "class": "resistor",
+                "x": 450,
+                "y": 300,
+                "angle": 315,
+                "connectors": [
+                    6,
+                    7
+                ],
+                "connectorsXY": [
+                    {
+                        "x": -45,
+                        "y": 0
+                    },
+                    {
+                        "x": 45,
+                        "y": 0
+                    }
+                ],
+                "state": false,
+                "rd": 1,
+                "put": true,
+                "unknownProperties": [],
+                "deletable": true,
+                "brokenType": -1,
+                "propertiesEditType": {
+                    "NoResistor": {
+                        "type": "uneditable"
+                    },
+                    "R": {
+                        "type": "range",
+                        "min": 0,
+                        "max": 1000,
+                        "step": 1
+                    },
+                    "PMax": {
+                        "type": "range",
+                        "min": 0,
+                        "max": 1000,
+                        "step": 1
+                    }
+                },
+                "R": 300,
+                "U": 0.6666666662921453,
+                "I": 0.0022222222209738176,
+                "P": 0.001481481479816942,
+                "PMax": 10
+            },
+            {
+                "name": "A0",
+                "ID": "ammeter0",
+                "No": 4,
+                "NoAmmeter": 0,
+                "class": "ammeter",
+                "x": 325,
+                "y": 225,
+                "angle": 0,
+                "connectors": [
+                    8,
+                    9
+                ],
+                "connectorsXY": [
+                    {
+                        "x": -70,
+                        "y": 0
+                    },
+                    {
+                        "x": 70,
+                        "y": 0
+                    }
+                ],
+                "state": false,
+                "rd": 1,
+                "put": true,
+                "unknownProperties": [],
+                "deletable": true,
+                "brokenType": -1,
+                "propertiesEditType": {
+                    "NoAmmeter": {
+                        "type": "uneditable"
+                    },
+                    "measuringRange": {
+                        "type": "range",
+                        "min": 1,
+                        "max": 10,
+                        "step": 1
+                    },
+                    "unit": {
+                        "type": "select",
+                        "multiple": false,
+                        "options": [
+                            "A",
+                            "mA",
+                            "uA"
+                        ]
+                    }
+                },
+                "R": 0.5,
+                "U": 5.534883727431346e-12,
+                "I": 1.1069767454862691e-11,
+                "P": 6.126987575236862e-23,
+                "measuringRange": 1,
+                "precision": 2,
+                "unit": "mA"
+            },
+            {
+                "name": "powerVDC0",
+                "ID": "powerVDC0",
+                "No": 5,
+                "NoPowerVDC": 0,
+                "class": "powerVDC",
+                "x": 325,
+                "y": 420,
+                "angle": 0,
+                "connectors": [
+                    10,
+                    11
+                ],
+                "connectorsXY": [
+                    {
+                        "x": -50,
+                        "y": 20
+                    },
+                    {
+                        "x": 50,
+                        "y": 20
+                    }
+                ],
+                "state": false,
+                "rd": 1,
+                "put": true,
+                "unknownProperties": [],
+                "deletable": true,
+                "brokenType": -1,
+                "propertiesEditType": {
+                    "NoPowerVDC": {
+                        "type": "uneditable"
+                    },
+                    "U": {
+                        "type": "range",
+                        "min": 0,
+                        "max": 100,
+                        "step": 1
+                    }
+                },
+                "R": 0,
+                "U": 1,
+                "I": 0,
+                "P": 0,
+                "ON": true
+            }
+        ],
+        "connectors": [
+            {
+                "class": "connector",
+                "name": "connector 0",
+                "ID": "connector 0",
+                "No": 0,
+                "R": 0,
+                "I": 0,
+                "connectWith": [
+                    4
+                ],
+                "connectedWires": [
+                    0
+                ],
+                "x": 168.18019484660536,
+                "y": 181.81980515339464,
+                "belongTo": 0,
+                "unknownProperties": []
+            },
+            {
+                "class": "connector",
+                "name": "connector 1",
+                "ID": "connector 1",
+                "No": 1,
+                "R": 0,
+                "I": 0,
+                "connectWith": [
+                    8,
+                    2
+                ],
+                "connectedWires": [
+                    3,
+                    6
+                ],
+                "x": 231.81980515339464,
+                "y": 118.18019484660536,
+                "belongTo": 0,
+                "unknownProperties": []
+            },
+            {
+                "class": "connector",
+                "name": "connector 2",
+                "ID": "connector 2",
+                "No": 2,
+                "R": 0,
+                "I": 0,
+                "connectWith": [
+                    1
+                ],
+                "connectedWires": [
+                    6
+                ],
+                "x": 418.18019484660533,
+                "y": 118.18019484660536,
+                "belongTo": 1,
+                "unknownProperties": []
+            },
+            {
+                "class": "connector",
+                "name": "connector 3",
+                "ID": "connector 3",
+                "No": 3,
+                "R": 0,
+                "I": 0,
+                "connectWith": [
+                    7
+                ],
+                "connectedWires": [
+                    2
+                ],
+                "x": 481.81980515339467,
+                "y": 181.81980515339464,
+                "belongTo": 1,
+                "unknownProperties": []
+            },
+            {
+                "class": "connector",
+                "name": "connector 4",
+                "ID": "connector 4",
+                "No": 4,
+                "R": 0,
+                "I": 0,
+                "connectWith": [
+                    0,
+                    10
+                ],
+                "connectedWires": [
+                    0,
+                    7
+                ],
+                "x": 168.18019484660536,
+                "y": 268.1801948466054,
+                "belongTo": 2,
+                "unknownProperties": []
+            },
+            {
+                "class": "connector",
+                "name": "connector 5",
+                "ID": "connector 5",
+                "No": 5,
+                "R": 0,
+                "I": 0,
+                "connectWith": [
+                    6
+                ],
+                "connectedWires": [
+                    1
+                ],
+                "x": 231.81980515339464,
+                "y": 331.8198051533946,
+                "belongTo": 2,
+                "unknownProperties": []
+            },
+            {
+                "class": "connector",
+                "name": "connector 6",
+                "ID": "connector 6",
+                "No": 6,
+                "R": 0,
+                "I": 0,
+                "connectWith": [
+                    5,
+                    9
+                ],
+                "connectedWires": [
+                    1,
+                    4
+                ],
+                "x": 418.1801948466054,
+                "y": 331.81980515339467,
+                "belongTo": 3,
+                "unknownProperties": []
+            },
+            {
+                "class": "connector",
+                "name": "connector 7",
+                "ID": "connector 7",
+                "No": 7,
+                "R": 0,
+                "I": 0,
+                "connectWith": [
+                    3,
+                    11
+                ],
+                "connectedWires": [
+                    2,
+                    8
+                ],
+                "x": 481.8198051533946,
+                "y": 268.18019484660533,
+                "belongTo": 3,
+                "unknownProperties": []
+            },
+            {
+                "class": "connector",
+                "name": "connector 8",
+                "ID": "connector 8",
+                "No": 8,
+                "R": 0,
+                "I": 0,
+                "connectWith": [
+                    1
+                ],
+                "connectedWires": [
+                    3
+                ],
+                "x": 255,
+                "y": 225,
+                "belongTo": 4,
+                "unknownProperties": []
+            },
+            {
+                "class": "connector",
+                "name": "connector 9",
+                "ID": "connector 9",
+                "No": 9,
+                "R": 0,
+                "I": 0,
+                "connectWith": [
+                    6
+                ],
+                "connectedWires": [
+                    4
+                ],
+                "x": 395,
+                "y": 225,
+                "belongTo": 4,
+                "unknownProperties": []
+            },
+            {
+                "class": "connector",
+                "name": "connector 10",
+                "ID": "connector 10",
+                "No": 10,
+                "R": 0,
+                "I": 0,
+                "connectWith": [
+                    4
+                ],
+                "connectedWires": [
+                    7
+                ],
+                "x": 275,
+                "y": 440,
+                "belongTo": 5,
+                "unknownProperties": []
+            },
+            {
+                "class": "connector",
+                "name": "connector 11",
+                "ID": "connector 11",
+                "No": 11,
+                "R": 0,
+                "I": 0,
+                "connectWith": [
+                    7
+                ],
+                "connectedWires": [
+                    8
+                ],
+                "x": 375,
+                "y": 440,
+                "belongTo": 5,
+                "unknownProperties": []
+            }
+        ],
+        "wires": [
+            {
+                "class": "wire",
+                "name": "wire 0",
+                "ID": "wire 0",
+                "No": 0,
+                "R": 0.000001,
+                "U": 0,
+                "I": 0,
+                "put": true,
+                "loc1": {
+                    "class": "connector",
+                    "name": "connector 0",
+                    "ID": "connector 0",
+                    "No": 0,
+                    "R": 0,
+                    "I": 0,
+                    "connectWith": [
+                        4
+                    ],
+                    "connectedWires": [
+                        0
+                    ],
+                    "x": 168.18019484660536,
+                    "y": 181.81980515339464,
+                    "belongTo": 0,
+                    "unknownProperties": []
+                },
+                "loc2": {
+                    "class": "connector",
+                    "name": "connector 4",
+                    "ID": "connector 4",
+                    "No": 4,
+                    "R": 0,
+                    "I": 0,
+                    "connectWith": [
+                        0,
+                        10
+                    ],
+                    "connectedWires": [
+                        0,
+                        7
+                    ],
+                    "x": 168.18019484660536,
+                    "y": 268.1801948466054,
+                    "belongTo": 2,
+                    "unknownProperties": []
+                },
+                "shift": false,
+                "turningPoints": [
+                    {
+                        "x": 168.18019484660536,
+                        "y": 181.81980515339464,
+                        "shift": false
+                    },
+                    {
+                        "x": 168.18019484660536,
+                        "y": 268.1801948466054,
+                        "shift": false
+                    }
+                ],
+                "color": "black",
+                "deletable": true,
+                "brokenType": -1
+            },
+            {
+                "class": "wire",
+                "name": "wire 1",
+                "ID": "wire 1",
+                "No": 1,
+                "R": 0.000001,
+                "U": 0,
+                "I": 0,
+                "put": true,
+                "loc1": {
+                    "class": "connector",
+                    "name": "connector 5",
+                    "ID": "connector 5",
+                    "No": 5,
+                    "R": 0,
+                    "I": 0,
+                    "connectWith": [
+                        6
+                    ],
+                    "connectedWires": [
+                        1
+                    ],
+                    "x": 231.81980515339464,
+                    "y": 331.8198051533946,
+                    "belongTo": 2,
+                    "unknownProperties": []
+                },
+                "loc2": {
+                    "class": "connector",
+                    "name": "connector 6",
+                    "ID": "connector 6",
+                    "No": 6,
+                    "R": 0,
+                    "I": 0,
+                    "connectWith": [
+                        5,
+                        9
+                    ],
+                    "connectedWires": [
+                        1,
+                        4
+                    ],
+                    "x": 418.1801948466054,
+                    "y": 331.81980515339467,
+                    "belongTo": 3,
+                    "unknownProperties": []
+                },
+                "shift": false,
+                "turningPoints": [
+                    {
+                        "x": 231.81980515339464,
+                        "y": 331.8198051533946,
+                        "shift": false
+                    },
+                    {
+                        "x": 418.1801948466054,
+                        "y": 331.81980515339467,
+                        "shift": false
+                    }
+                ],
+                "color": "black",
+                "deletable": true,
+                "brokenType": -1
+            },
+            {
+                "class": "wire",
+                "name": "wire 2",
+                "ID": "wire 2",
+                "No": 2,
+                "R": 0.000001,
+                "U": 0,
+                "I": 0,
+                "put": true,
+                "loc1": {
+                    "class": "connector",
+                    "name": "connector 7",
+                    "ID": "connector 7",
+                    "No": 7,
+                    "R": 0,
+                    "I": 0,
+                    "connectWith": [
+                        3,
+                        11
+                    ],
+                    "connectedWires": [
+                        2,
+                        8
+                    ],
+                    "x": 481.8198051533946,
+                    "y": 268.18019484660533,
+                    "belongTo": 3,
+                    "unknownProperties": []
+                },
+                "loc2": {
+                    "class": "connector",
+                    "name": "connector 3",
+                    "ID": "connector 3",
+                    "No": 3,
+                    "R": 0,
+                    "I": 0,
+                    "connectWith": [
+                        7
+                    ],
+                    "connectedWires": [
+                        2
+                    ],
+                    "x": 481.81980515339467,
+                    "y": 181.81980515339464,
+                    "belongTo": 1,
+                    "unknownProperties": []
+                },
+                "shift": false,
+                "turningPoints": [
+                    {
+                        "x": 481.8198051533946,
+                        "y": 268.18019484660533,
+                        "shift": false
+                    },
+                    {
+                        "x": 481.81980515339467,
+                        "y": 181.81980515339464,
+                        "shift": false
+                    }
+                ],
+                "color": "black",
+                "deletable": true,
+                "brokenType": -1
+            },
+            {
+                "class": "wire",
+                "name": "wire 3",
+                "ID": "wire 3",
+                "No": 3,
+                "R": 0.000001,
+                "U": 0,
+                "I": 0,
+                "put": true,
+                "loc1": {
+                    "class": "connector",
+                    "name": "connector 1",
+                    "ID": "connector 1",
+                    "No": 1,
+                    "R": 0,
+                    "I": 0,
+                    "connectWith": [
+                        8,
+                        2
+                    ],
+                    "connectedWires": [
+                        3,
+                        6
+                    ],
+                    "x": 231.81980515339464,
+                    "y": 118.18019484660536,
+                    "belongTo": 0,
+                    "unknownProperties": []
+                },
+                "loc2": {
+                    "class": "connector",
+                    "name": "connector 8",
+                    "ID": "connector 8",
+                    "No": 8,
+                    "R": 0,
+                    "I": 0,
+                    "connectWith": [
+                        1
+                    ],
+                    "connectedWires": [
+                        3
+                    ],
+                    "x": 255,
+                    "y": 225,
+                    "belongTo": 4,
+                    "unknownProperties": []
+                },
+                "shift": false,
+                "turningPoints": [
+                    {
+                        "x": 231.81980515339464,
+                        "y": 118.18019484660536,
+                        "shift": false
+                    },
+                    {
+                        "x": 255,
+                        "y": 225,
+                        "shift": false
+                    }
+                ],
+                "color": "black",
+                "deletable": true,
+                "brokenType": -1
+            },
+            {
+                "class": "wire",
+                "name": "wire 4",
+                "ID": "wire 4",
+                "No": 4,
+                "R": 0.000001,
+                "U": 0,
+                "I": 0,
+                "put": true,
+                "loc1": {
+                    "class": "connector",
+                    "name": "connector 9",
+                    "ID": "connector 9",
+                    "No": 9,
+                    "R": 0,
+                    "I": 0,
+                    "connectWith": [
+                        6
+                    ],
+                    "connectedWires": [
+                        4
+                    ],
+                    "x": 395,
+                    "y": 225,
+                    "belongTo": 4,
+                    "unknownProperties": []
+                },
+                "loc2": {
+                    "class": "connector",
+                    "name": "connector 6",
+                    "ID": "connector 6",
+                    "No": 6,
+                    "R": 0,
+                    "I": 0,
+                    "connectWith": [
+                        5,
+                        9
+                    ],
+                    "connectedWires": [
+                        1,
+                        4
+                    ],
+                    "x": 418.1801948466054,
+                    "y": 331.81980515339467,
+                    "belongTo": 3,
+                    "unknownProperties": []
+                },
+                "shift": 1,
+                "turningPoints": [
+                    {
+                        "x": 395,
+                        "y": 225,
+                        "shift": false
+                    },
+                    {
+                        "x": 418.1801948466054,
+                        "y": 331.81980515339467,
+                        "shift": 1
+                    }
+                ],
+                "color": "black",
+                "deletable": true,
+                "brokenType": -1
+            },
+            {
+                "class": "wire",
+                "name": "wire 6",
+                "ID": "wire 6",
+                "No": 6,
+                "R": 0.000001,
+                "U": 0,
+                "I": 0,
+                "put": true,
+                "loc1": {
+                    "class": "connector",
+                    "name": "connector 1",
+                    "ID": "connector 1",
+                    "No": 1,
+                    "R": 0,
+                    "I": 0,
+                    "connectWith": [
+                        8,
+                        2
+                    ],
+                    "connectedWires": [
+                        3,
+                        6
+                    ],
+                    "x": 231.81980515339464,
+                    "y": 118.18019484660536,
+                    "belongTo": 0,
+                    "unknownProperties": []
+                },
+                "loc2": {
+                    "class": "connector",
+                    "name": "connector 2",
+                    "ID": "connector 2",
+                    "No": 2,
+                    "R": 0,
+                    "I": 0,
+                    "connectWith": [
+                        1
+                    ],
+                    "connectedWires": [
+                        6
+                    ],
+                    "x": 418.18019484660533,
+                    "y": 118.18019484660536,
+                    "belongTo": 1,
+                    "unknownProperties": []
+                },
+                "shift": false,
+                "turningPoints": [
+                    {
+                        "x": 231.81980515339464,
+                        "y": 118.18019484660536,
+                        "shift": false
+                    },
+                    {
+                        "x": 418.18019484660533,
+                        "y": 118.18019484660536,
+                        "shift": false
+                    }
+                ],
+                "color": "black",
+                "deletable": true,
+                "brokenType": -1
+            },
+            {
+                "class": "wire",
+                "name": "wire 7",
+                "ID": "wire 7",
+                "No": 7,
+                "R": 0.000001,
+                "U": 0,
+                "I": 0,
+                "put": true,
+                "loc1": {
+                    "class": "connector",
+                    "name": "connector 4",
+                    "ID": "connector 4",
+                    "No": 4,
+                    "R": 0,
+                    "I": 0,
+                    "connectWith": [
+                        0,
+                        10
+                    ],
+                    "connectedWires": [
+                        0,
+                        7
+                    ],
+                    "x": 168.18019484660536,
+                    "y": 268.1801948466054,
+                    "belongTo": 2,
+                    "unknownProperties": []
+                },
+                "loc2": {
+                    "class": "connector",
+                    "name": "connector 10",
+                    "ID": "connector 10",
+                    "No": 10,
+                    "R": 0,
+                    "I": 0,
+                    "connectWith": [
+                        4
+                    ],
+                    "connectedWires": [
+                        7
+                    ],
+                    "x": 275,
+                    "y": 440,
+                    "belongTo": 5,
+                    "unknownProperties": []
+                },
+                "shift": 0,
+                "turningPoints": [
+                    {
+                        "x": 168.18019484660536,
+                        "y": 268.1801948466054,
+                        "shift": false
+                    },
+                    {
+                        "x": 275,
+                        "y": 440,
+                        "shift": 0
+                    }
+                ],
+                "color": "black",
+                "deletable": true,
+                "brokenType": -1
+            },
+            {
+                "class": "wire",
+                "name": "wire 8",
+                "ID": "wire 8",
+                "No": 8,
+                "R": 0.000001,
+                "U": 0,
+                "I": 0,
+                "put": true,
+                "loc1": {
+                    "class": "connector",
+                    "name": "connector 7",
+                    "ID": "connector 7",
+                    "No": 7,
+                    "R": 0,
+                    "I": 0,
+                    "connectWith": [
+                        3,
+                        11
+                    ],
+                    "connectedWires": [
+                        2,
+                        8
+                    ],
+                    "x": 481.8198051533946,
+                    "y": 268.18019484660533,
+                    "belongTo": 3,
+                    "unknownProperties": []
+                },
+                "loc2": {
+                    "class": "connector",
+                    "name": "connector 11",
+                    "ID": "connector 11",
+                    "No": 11,
+                    "R": 0,
+                    "I": 0,
+                    "connectWith": [
+                        7
+                    ],
+                    "connectedWires": [
+                        8
+                    ],
+                    "x": 375,
+                    "y": 440,
+                    "belongTo": 5,
+                    "unknownProperties": []
+                },
+                "shift": false,
+                "turningPoints": [
+                    {
+                        "x": 481.8198051533946,
+                        "y": 268.18019484660533,
+                        "shift": false
+                    },
+                    {
+                        "x": 375,
+                        "y": 440,
+                        "shift": false
+                    }
+                ],
+                "color": "black",
+                "deletable": true,
+                "brokenType": -1
+            }
+        ],
+        "No": {
+            "element": 6,
+            "voltmeter": 0,
+            "resistor": 4,
+            "ammeter": 1,
+            "powerVDC": 1,
+            "powerIDC": 0,
+            "powerVAC": 0,
+            "powerIAC": 0,
+            "capacitor": 0,
+            "inductor": 0,
+            "connector": 12,
+            "wire": 9
+        },
+        "max": {
+            "element": "Infinity",
+            "voltmeter": "Infinity",
+            "resistor": "Infinity",
+            "ammeter": "Infinity",
+            "powerVDC": "Infinity",
+            "powerIDC": "Infinity",
+            "powerVAC": "Infinity",
+            "powerIAC": "Infinity",
+            "capacitor": "Infinity",
+            "inductor": "Infinity",
+            "connector": "Infinity",
+            "wire": "Infinity"
+        },
+        "count": {
+            "element": 6,
+            "voltmeter": 0,
+            "resistor": 4,
+            "ammeter": 1,
+            "powerVDC": 1,
+            "powerIDC": 0,
+            "powerVAC": 0,
+            "powerIAC": 0,
+            "capacitor": 0,
+            "inductor": 0,
+            "connector": 12,
+            "wire": 8
+        }
+    },
+    "questions": [
+        {
+            "id": "1",
+            "content": "损坏的元件有：",
+            "description": "broken",
+            "input": {
+                "type": "selectBroken"
+            },
+            "rightAnswer": "getBroken()"
+        }
+    ],
+    "expMode": true
+}

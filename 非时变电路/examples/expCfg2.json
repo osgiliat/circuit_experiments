@@ -1,0 +1,217 @@
+{
+    "id": "002",
+    "name": "2电桥法测电阻实验",
+    "type": "measurement",
+    "initState": {
+        "elements": [
+            {
+                "name": "resistor0",
+                "ID": "resistor0",
+                "No": 0,
+                "NoResistor": 0,
+                "class": "resistor",
+                "x": 199,
+                "y": 195,
+                "angle": 0,
+                "connectors": [0, 1],
+                "connectorsXY": [
+                    { "x": -45, "y": 0 },
+                    { "x": 45, "y": 0 }
+                ],
+                "state": false,
+                "rd": {},
+                "put": true,
+                "unknownProperties": ["brokenType", "R", "U", "I", "P", "PMax"],
+                "deletable": false,
+                "brokenType": -1,
+                "propertiesEditType": {
+                    "NoResistor": { "type": "uneditable" },
+                    "R": { "type": "range", "min": 0, "max": 1000, "step": 1 },
+                    "PMax": { "type": "range", "min": 0, "max": 1000, "step": 1 }
+                },
+                "R": 60,
+                "U": 0,
+                "I": 0,
+                "P": 0,
+                "PMax": 10
+            },
+            {
+                "name": "ammeter0",
+                "ID": "ammeter0",
+                "No": 1,
+                "NoAmmeter": 0,
+                "class": "ammeter",
+                "x": 344,
+                "y": 197,
+                "angle": 0,
+                "connectors": [2, 3],
+                "connectorsXY": [
+                    { "x": -70, "y": 0 },
+                    { "x": 70, "y": 0 }
+                ],
+                "state": false,
+                "rd": {},
+                "put": true,
+                "unknownProperties": ["brokenType", "U", "P"],
+                "deletable": false,
+                "brokenType": -1,
+                "propertiesEditType": {
+                    "NoAmmeter": { "type": "uneditable" },
+                    "measuringRange": {
+                        "type": "range",
+                        "min": 1,
+                        "max": 10,
+                        "step": 1
+                    },
+                    "unit": {
+                        "type": "select",
+                        "multiple": false,
+                        "options": ["A", "mA", "uA"]
+                    }
+                },
+                "R": 0.5,
+                "U": 0,
+                "I": 0,
+                "P": 0,
+                "measuringRange": 30,
+                "precision": 2,
+                "unit": "uA"
+            }
+        ],
+        "connectors": [
+            {
+                "class": "connector",
+                "name": "connector 0",
+                "ID": "connector 0",
+                "No": 0,
+                "R": 0,
+                "I": 0,
+                "connectWith": [],
+                "connectedWires": [],
+                "x": 154,
+                "y": 195,
+                "belongTo": 0,
+                "unknownProperties": []
+            },
+            {
+                "class": "connector",
+                "name": "connector 1",
+                "ID": "connector 1",
+                "No": 1,
+                "R": 0,
+                "I": 0,
+                "connectWith": [],
+                "connectedWires": [],
+                "x": 244,
+                "y": 195,
+                "belongTo": 0,
+                "unknownProperties": []
+            },
+            {
+                "class": "connector",
+                "name": "connector 2",
+                "ID": "connector 2",
+                "No": 2,
+                "R": 0,
+                "I": 0,
+                "connectWith": [],
+                "connectedWires": [],
+                "x": 274,
+                "y": 197,
+                "belongTo": 1,
+                "unknownProperties": []
+            },
+            {
+                "class": "connector",
+                "name": "connector 3",
+                "ID": "connector 3",
+                "No": 3,
+                "R": 0,
+                "I": 0,
+                "connectWith": [],
+                "connectedWires": [],
+                "x": 414,
+                "y": 197,
+                "belongTo": 1,
+                "unknownProperties": []
+            }
+        ],
+        "wires": [],
+        "No": {
+            "element": 2,
+            "voltmeter": 0,
+            "resistor": 1,
+            "ammeter": 1,
+            "powerVDC": 0,
+            "powerIDC": 0,
+            "powerVAC": 0,
+            "powerIAC": 0,
+            "capacitor": 0,
+            "inductor": 0,
+            "connector": 4,
+            "wire": 0
+        },
+        "max": {
+            "element": "Infinity",
+            "voltmeter": 0,
+            "resistor": 4,
+            "ammeter": 0,
+            "powerVDC": 1,
+            "powerIDC": 0,
+            "powerVAC": 0,
+            "powerIAC": 0,
+            "capacitor": 0,
+            "inductor": 0,
+            "connector": "Infinity",
+            "wire": "Infinity"
+        },
+        "count": {
+            "element": 2,
+            "voltmeter": 0,
+            "resistor": 1,
+            "ammeter": 1,
+            "powerVDC": 0,
+            "powerIDC": 0,
+            "powerVAC": 0,
+            "powerIAC": 0,
+            "capacitor": 0,
+            "inductor": 0,
+            "connector": 4,
+            "wire": 0
+        }
+    }
+    ,
+    "questions": [
+        {
+            "id": "1",
+            "content": "待测电阻的值（精确到两位小数）：",
+            "description": "0resistor0.R",
+            "input": {
+                "type": "number",
+                "step": 0.01
+            },
+            "rightAnswer": "circuitState.elements[0].R.toFixed(2)"
+        },
+        {
+            "id": "2",
+            "content": "待测电阻的电压（精确到两位小数）：",
+            "description": "No:1, resistor0.R, fixed: 2",
+            "input": {
+                "type": "number",
+                "step": 0.01
+            },
+            "rightAnswer": "circuitState.elements[0].U.toFixed(2)"
+        },
+        {
+            "id": "3",
+            "content": "待测电阻的功率（精确到两位小数）：",
+            "description": "No:1, resistor0.P, fixed: 2",
+            "input": {
+                "type": "number",
+                "step": 0.01
+            },
+            "rightAnswer": "circuitState.elements[0].P.toFixed(2)"
+        }
+    ],
+    "expMode": true
+}
